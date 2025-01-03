@@ -1,0 +1,78 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Citas {
+  id                Int          @id @default(autoincrement())
+  id_paciente       Int          @default(autoincrement())
+  id_tratamiento    Int          @default(autoincrement())
+  fecha_hora_inicio DateTime     @db.Timestamptz(6)
+  fecha_hora_fin    DateTime     @db.Timetz(6)
+  status            estado_cita
+  notas             String?
+  Pacientes         Pacientes    @relation(fields: [id_paciente], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_id_paciente")
+  Tratamientos      Tratamientos @relation(fields: [id_tratamiento], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_id_tratamientos")
+}
+
+model Historial_Tratamientos {
+  id                Int      @id @default(autoincrement())
+  id_paciente       Int      @default(autoincrement())
+  id_tratamiento    Int      @default(autoincrement())
+  fecha_realizacion DateTime @db.Date
+  notas             String?
+}
+
+model Pacientes {
+  id                    Int      @id @default(autoincrement())
+  nombre                String   @db.VarChar(20)
+  apellido              String   @db.VarChar(20)
+  fecha_nacimiento      DateTime @db.Date
+  telefono              String   @db.VarChar
+  calle                 String   @db.VarChar(255) // Calle y nombre de la vía
+  numero_exterior       String   @db.VarChar(20)  // Número exterior
+  numero_interior       String?  @db.VarChar(20)  // Número interior (opcional)
+  colonia               String?  @db.VarChar(255) // Colonia o barrio (opcional)
+  codigo_postal         String   @db.VarChar(10)  // Código postal
+  ciudad                String   @db.VarChar(255) // Ciudad o municipio
+  estado                String   @db.VarChar(255) // Estado o provincia
+  pais                  String   @db.VarChar(255) // País
+  email                 String   @unique(map: "email_unique") @db.VarChar
+  alergias              String?
+  enfermedades_cronicas String?
+  Citas                 Citas[]
+}
+
+model Tratamientos {
+  id          Int     @id @default(autoincrement())
+  nombre_     String  @map("nombre ") @db.VarChar
+  descripci_n String  @map("descripción")
+  precio      Decimal @db.Decimal
+  Citas       Citas[]
+}
+
+model Usuarios {
+  id       Int    @id @default(autoincrement())
+  nombre   String @db.VarChar(20)
+  apellido String @db.VarChar(20)
+  email    String @unique(map: "unique_email") @db.VarChar(30)
+  password String @db.VarChar(30)
+  rol      rol    @default(Usuario)
+}
+
+enum estado_cita {
+  pendiente
+  confirmada
+  cancelada
+  completada
+}
+
+enum rol {
+  Admin
+  Usuario
+  Paciente
+}

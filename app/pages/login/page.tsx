@@ -1,16 +1,15 @@
 import React from 'react'
-/*
 import Image from 'next/image'
 import { FaRegCircleUser } from "react-icons/fa6";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { FaArrowRight } from "react-icons/fa";
-*/
+
 
 
 function page() {
   
   return (
-    /*<div className='bg-gradient-to-br from-blue-500 to-bluelogo h-screen w-flex dark:bg-black'>
+    <div className='bg-gradient-to-br from-blue-500 to-bluelogo h-screen w-flex dark:bg-black'>
       <div className='hidden h-1/6 w-full grow sm:block '></div>
         <div className='rounded-xl w-full h-4/6 mx-auto grid grid-cols-2 max-w-fit min-w-fit gap-0'>
               <div className='bg-bluelogo p-4 flex items-center justify-center rounded-tl-xl rounded-bl-xl
@@ -51,18 +50,8 @@ function page() {
           </div>
           
         </div>
-    </div>*/
-    <div className='grid w-full h-screen bg-indigo-400'>
-      <div className='bg-indigo-400 mx-auto content-center '>
-      <button type='button' className='bg-indigo-500  w-50 h-30' disabled>
-
-        <svg className='animate-spin h-5 w-5 mr-3 bg-white'></svg>
-        Loading
-      </button>
-      </div>
     </div>
   )
 }
-
 
 export default page
