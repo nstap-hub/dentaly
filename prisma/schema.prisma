@@ -51,7 +51,7 @@ model Tratamientos {
   id          Int     @id @default(autoincrement())
   nombre_     String  @map("nombre ") @db.VarChar
   descripci_n String  @map("descripción")
-  precio      Decimal @db.Decimal
+  precio      Decimal @db.Money 
   Citas       Citas[]
 }
 

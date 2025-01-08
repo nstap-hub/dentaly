@@ -1,4 +1,5 @@
-import { LuBookOpenCheck,LuHouse,LuLogOut } from "react-icons/lu";
+"use client";
+import { LuBookOpenCheck,LuHouse,LuLogOut,LuUsersRound,LuBookPlus } from "react-icons/lu";
 
 
 import {
@@ -16,13 +17,23 @@ import {
 const items = [
   {
     title: "Home",
-    url: "/pages/dashboard",
+    url: "/dashboard",
     icon: LuHouse,
   },
   {
     title: "Appointments",
-    url: "/pages/dashboard/appointments",
+    url: "/dashboard/appointments",
     icon:LuBookOpenCheck ,
+  },
+  {
+    title: "Patients",
+    url: "/dashboard/patients",
+    icon: LuUsersRound,
+  },
+  {
+    title:"Treatments",
+    url:"/dashboard/treatments",
+    icon:LuBookPlus,
   },
 
   {
@@ -30,16 +41,16 @@ const items = [
     url: "#",
     icon: LuLogOut,
   },
-]
+] 
 
 export function AppSideBar() {
   return (
     <Sidebar>
-      <SidebarContent>
-        <SidebarGroup>
-          <SidebarGroupLabel>Dentaly</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
+      <SidebarContent className="bg-blg">
+        <SidebarGroup className="bg-blg">
+          <SidebarGroupLabel className="text-white">Dentaly</SidebarGroupLabel>
+          <SidebarGroupContent >
+            <SidebarMenu className="text-white">
               {items.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>

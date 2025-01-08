@@ -10,7 +10,7 @@ export default function page() {
 
  
   return (
-    <div className='w-full h-screen'>
+    <div className=' flex w-full h-full'>
 
               <Card className='flex flex-col h-full'>
                 <CardHeader className='flex flex-row justify-end items-center w-full h-30 gap-96'>

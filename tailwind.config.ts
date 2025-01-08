@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import * as tailwindAnimate from "tailwindcss-animate"
 export default {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -12,6 +12,7 @@ export default {
   			bluelogo: '#3204fa',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+			blg:'#461cfb',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
@@ -69,5 +70,5 @@ export default {
   	}
   },
   darkMode:['class', "class"],
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindAnimate],
 } satisfies Config;

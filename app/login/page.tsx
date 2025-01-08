@@ -14,7 +14,7 @@ function page() {
         <div className='rounded-xl w-full h-4/6 mx-auto grid grid-cols-2 max-w-fit min-w-fit gap-0'>
               <div className='bg-bluelogo p-4 flex items-center justify-center rounded-tl-xl rounded-bl-xl
                dark:bg-blue-500' >
-                <Image src='/dentaly_logo.png' alt="#" width={300} height={80} layout='cover4'/>
+                <Image src='/dentaly_logo.png' priority alt="#" width={300} height={80}/>
               </div>
               
               <div className='bg-blue-500 p-4 flex flex-col items-center justify-center rounded-tr-xl rounded-br-xl'>
@@ -41,7 +41,7 @@ function page() {
                   />
                   </div>
                   <div className='flex flex-col mt-2 '>
-                  <button type="submit" className='w-full h-12 bg-bluelogo rounded-full flex items-center justify-between px-24'>Start <FaArrowRight /></button>
+                  <button type="submit" className='text-white w-full h-12 bg-bluelogo rounded-full flex justify-between'>Start <FaArrowRight /></button>
                   </div>
                   
               </div>
