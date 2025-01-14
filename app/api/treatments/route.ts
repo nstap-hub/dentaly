@@ -36,3 +36,15 @@ export async function POST(req:Request){
         }
     }
 }
+
+export async function GET(req: Request) {
+    if(req.method === 'GET'){
+     try {
+            const tratamientos = await prisma.tratamientos.findMany(); // Obtiene todos los tratamientos
+            return NextResponse.json(tratamientos, { status: 200 });
+        } catch (error) {
+            console.error("Error al obtener los tratamientos:", error);
+            return NextResponse.json({ error: "Error al obtener los tratamientos" }, { status: 500 });
+        }
+    }
+}

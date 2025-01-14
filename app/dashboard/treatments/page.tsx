@@ -1,6 +1,7 @@
 import React from 'react'
 import TreatmentForm from './TreatmentForm'
 import { Card,CardContent } from '@/components/ui/card'
+import TreatmentsTable from './treatmentsTable/page'
 
 function page() {
   return (
@@ -8,10 +9,9 @@ function page() {
 
 
     <Card className=' flex w-full h-full'>
-        <CardContent>
-        <TreatmentForm>
-
-</TreatmentForm>
+        <CardContent className='flex '>
+        <TreatmentsTable />
+        <TreatmentForm/>
         </CardContent>
     </Card>
     </div>    
